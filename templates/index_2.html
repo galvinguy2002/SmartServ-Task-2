@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <title>Product Listing</title>
+  <script src="static/test.js"></script>
+  <link rel="stylesheet" href="static/styles.css">
+  <script>
+    function updateStatus() {
+      const fileInput = document.getElementById('fileUpload');
+      const fileStatus = document.getElementById('fileStatus');
+
+      if (fileInput.files.length > 0) {
+        fileStatus.textContent = `File uploaded: ${fileInput.files[0].name}`;
+      } else {
+        fileStatus.textContent = 'No file chosen';
+      }
+    }
+  </script>
+
+<body>
+  <div class="container">
+    <div class="card">
+
+      <p>Step 1:</p>
+      &nbsp;
+      <form action="/upload" method="post" enctype="multipart/form-data">
+        &nbsp;&nbsp;&nbsp;&nbsp;<label for="fileUpload">Select a File:</label>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<input type="file" id="fileUpload" name="fileUpload" onchange="updateStatus()">
+        <br>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        Supported File Type(s): .CSV,.JSON
+      </form>
+
+    </div>
+    <div class="card">
+
+      <p>Step 2:</p>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      Specify Format
+      <form>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <label for="fileType">File Type:</label>
+        <select id="fileType" name="fileType">
+          <option value="csv">CSV</option>
+        </select>
+        <br>
+        <br>
+
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <label for="charEncoding">Character Encoding:</label>
+        <select id="charEncoding" name="charEncoding">
+          <option value="utf-8">UTF-8</option>
+          <option value="iso-8859-1">ISO-8859-1</option>
+        </select>
+        <br>
+        <br>
+
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <label for="delimiter">Delimiter:</label>
+        <select id="delimiter" name="delimiter">
+          <option value=",">Comma (,)</option>
+          <option value=";">Semicolon (;)</option>
+        </select>
+        <br>
+        <br>
+
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <label for="hasHeader">Has Header:</label>
+        <input type="checkbox" id="hasHeader" name="hasHeader">
+      </form>
+
+    </div>
+  </div>
+  <div class="container2">
+    <div class="card">
+      Step :3
+      <br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      Display Handling
+      <br>
+      <br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      Select the fields to be displayed
+      <br>
+      <br>
+      &nbsp;&nbsp; Available
+      Fields&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      Fields to be Displayed
+      <div class="selection-panel">
+        <label for="available-fields"></label>
+        <div class="available-fields">
+          <select multiple id="available-fields">
+            <option value="pid">Product Id</option>
+            <option value="subcategory">Subcategory</option>
+            <option value="title">Title</option>
+            <option value="price">Price</option>
+            <option value="popularity">Popularity</option>
+            <option value="Description">Description</option>
+            <option value="Rating">Rating</option>
+            <option value="UTM Source">UTM Source</option>
+            <option value="UTM Medium">UTM Medium</option>
+          </select>
+        </div>
+        <div class="actions">
+          <button id="add-field">»</button>
+          <button id="remove-field">«</button>
+        </div>
+        <div class="selected-fields">
+          <label for="selected-fields"></label>
+          <select multiple id="selected-fields">
+            <!-- Initially empty; options will be moved here from the available fields -->    
+
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="buttons">
+    <button class="next-button">Next</button>
+    <button class="cancel-button">Cancel</button>
+</div>
+
+</body>
+
+</html>
