@@ -2,6 +2,7 @@ from flask import Flask, render_template, request
 import requests
 import pandas as pd
 import json
+import os
 
 app = Flask(__name__)
 
@@ -40,4 +41,6 @@ def index_3():
     return render_template('index_2.html')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(debug=False, port=port)
+
