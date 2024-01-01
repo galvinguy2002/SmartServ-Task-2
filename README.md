@@ -1,5 +1,5 @@
 # SmartServ-Task-2
-Find it here: https://smartserv-task-1and2-6d312adf9d22.herokuapp.com/task-2
+Find it here: https://smartserv-task-1and2-6d312adf9d22.herokuapp.com/task-2 <br>
 2.  Create an application to parse the JSON from the API mentioned below.  :white_check_mark:  <br>
 The JSON file contains 1000 records of products. Each product has the following 4 attributes <br> 
 Subcategory <br>
